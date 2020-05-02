@@ -93,16 +93,20 @@ function getPostInfo () {
 function addButtonPostListener () {
     let postButton = $("#btn-new-post")
     postButton.click((event) => {
-        // let postInfo = getPostInfo()
+        const title = $('#title').val()
+        const image = $('#select-image').val()
+        const category = $('#topic').val()
+        const author = $('#author').val()
+        const description = $('#text-area').val()
         const postInfo = {
-            "title": "flutter",
-            "author": "Mar",
-            "description": "s simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-            "category": "mobile",
-            "image": "https://picsum.photos/300/400",
-            "estimatedReadTime": 1
-
+            title,
+            image,
+            category,
+            author,
+            description,
+            estimatedReadTime: 2
         }
+
         console.log(window.localStorage.getItem('token'))
         $.ajax({
             url: "http://localhost:8082/entries",
