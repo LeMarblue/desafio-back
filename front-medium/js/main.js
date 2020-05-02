@@ -103,6 +103,7 @@ function addButtonPostListener () {
             "estimatedReadTime": 1
 
         }
+        console.log(window.localStorage.getItem('token'))
         $.ajax({
             url: "http://localhost:8082/entries",
             method: "POST",
@@ -261,7 +262,7 @@ function addLoginListener () {
                 console.log(response)
                 const { data } = response
                 const { token } = data
-                window.localStorage('token', token)
+                window.localStorage.setItem('token', token)
             }
         })
     })
